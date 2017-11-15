@@ -1,0 +1,62 @@
+
+  .selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  .messages {
+    list-style-type: none;
+    padding: 0;
+    width: 930px;
+    height: 450px;
+    overflow-y: scroll;   
+  }
+  .messages li {
+    list-style-type: none;
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    height: auto;
+    margin: 12px;  
+    
+  }
+  .messages li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .messages li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .messages .text {
+    position: relative;
+    }
+  
+  .message{
+    box-sizing: border-box;
+  }
+
+  .sender{
+    color: red;
+    font-size: 18px;
+    float: left;
+    margin-right: 5px;
+    
+  }
+
+  .date{
+    color: black;
+    font-size: 18px;
+    
+   
+  }
+
+  .message{
+    color: black;
+    font-size: 18px;
+    margin-top: 5px;
+     
+  }
+
+  
+  

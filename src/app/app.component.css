@@ -1,0 +1,49 @@
+p.heading{
+    border-style: solid;
+    border-color:blue;
+    font-size: 40px;
+    color:crimson;
+    font-stretch: expanded;
+    text-align: center;
+    background-color:rgb(51, 54, 54);
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+   
+}
+
+
+
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    height: 520px; /* Should be removed. Only for demonstration */
+       
+}
+
+/* Left and right column */
+.column.side {
+    width: 15%;
+    background-color:rgb(51, 54, 54);
+}
+
+/* Middle column */
+.column.middle {
+    width: 70%;
+    background-color: white;
+   
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

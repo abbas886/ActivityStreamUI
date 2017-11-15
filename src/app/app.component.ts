@@ -1,10 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Message } from './message/message'
+import { User } from './user/user'
+import { Circle } from './circle/circle'
+
+import { CircleService } from './circle.service';
+import { UserService } from './user.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+  circles: Circle[] = [];
+  users: User[] = [];
+  @Input()
+  messages: Message[]= [];
+
+  constructor(private circleService: CircleService,
+    private userService: UserService) {
+
+  }
+
+  getAllCircles() {
+
+    this.circleService.getAllCircles().subscribe(data => {
+      this.circles = data.json();
+    })
+
+  }
+
+  getAllUsers() {
+
+    this.userService.getAllUsers().subscribe(data => {
+      this.circles = data.json();
+    })
+
+  }
+
+  onMessages(messages: Message[]) {
+    this.messages = messages;
+  }
+
+
+  ngOnInit() {
+
+    this.getAllCircles();
+    // this.getAllUsers();
+    // this.getCircleMessages();
+  }
+
 }
+
+

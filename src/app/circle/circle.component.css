@@ -1,0 +1,46 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    padding: 5px;
+    height: 520px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+
+
+.circles ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.circles li {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #f2f5f7;
+    color: #1e09db;
+}
+
+.circles li:hover {
+    background-color: #aeb3b4;
+}
+
+.messages  {
+    position: relative;
+    top: -3px;
+    left: 126px;
+    height: fit-content;
+    width:  auto;
+  }
+
+  
