@@ -7,9 +7,18 @@
     list-style-type: none;
     padding: 0;
     width: 930px;
-    height: 450px;
-    overflow-y: scroll;   
-  }
+    height: 470px;
+    overflow: scroll;   
+   }
+ 
+   ul {
+   
+    vertical-align: bottom;
+    position:absolute;
+    bottom:170px;
+    margin:0px;
+   }
+
   .messages li {
     list-style-type: none;
     cursor: pointer;
@@ -17,7 +26,8 @@
     left: 0;
     height: auto;
     margin: 12px;  
-    
+    vertical-align: bottom;
+       
   }
   .messages li.selected:hover {
     background-color: #BBD8DC !important;
@@ -51,12 +61,37 @@
    
   }
 
+
   .message{
     color: black;
     font-size: 18px;
     margin-top: 5px;
      
   }
+
+   .btnAttachment{
+    font-size: 20px;
+    margin: 0;
+    height: 40px;
+    width: 5%;
+    background-color : white ;
+    float: left;
+   }
+
+  .btnAttachment :hover{
+   
+    background-color:  rgb(114, 5, 5);
+    
+  }
+
+  .txtMessage{
+    font-size: 18px;
+    height: 35px;
+    width: 93%;
+    scroll-behavior: unset;
+       
+  }
+  
 
   
   

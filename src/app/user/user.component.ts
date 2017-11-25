@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from './user';
+import { MessageService } from '../message.service';
+import { Message, CommonMessage } from '../message/message'
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -8,23 +10,37 @@ import { User } from './user';
 })
 export class UserComponent implements OnInit {
 
+  @Input()
   users: User[] = [];
+
+  userMessages: Message[] = [];
+
+  commonMessageTemp: CommonMessage;
+
+  @Output()
+  commonMessage: EventEmitter<CommonMessage> = new EventEmitter<CommonMessage>();
+
   selectedUser: User;
-  constructor(private userService: UserService) {
-  
+  constructor(
+    private messageService: MessageService
+  ) {
+
+
   }
 
+  getUserMessages(userID: string) {
+    this.messageService.getUserMessages(userID).subscribe(
+      data => {
+        this.userMessages = data.json();
+        this.commonMessageTemp = new CommonMessage();
+        this.commonMessageTemp.userName = userID;
+        this.commonMessageTemp.messages = this.userMessages;
 
-  onSelect(user: User): void {
-    this.selectedUser = user;
+        this.commonMessage.emit(this.commonMessageTemp);
+      }
+    )
   }
-
   ngOnInit() {
-   /* console.log('Calling ngOnInit of user component')
-    this.userService.getAllUsers().subscribe(data => {
-      this.users = data.json();
-    })*/
-
   }
 
 }

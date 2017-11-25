@@ -7,3 +7,10 @@ export class Message {
   circleName: string;
   postedDate: Date;
 }
+
+export class CommonMessage {
+  circleName: string;
+  userName: string;
+  messages: Message[];
+}
+

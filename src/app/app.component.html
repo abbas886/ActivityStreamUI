@@ -2,16 +2,19 @@
   Let us Discuss - Organizational Activities </p>
 
 
-<div class="row">
-  <div class="column side">
+<div>
 
-    <app-circle [circles]="circles" (messages)="onMessages($event)"></app-circle>
-  </div>
+  <div class="column left">
+    <app-circle [circles]="circles" (commonMessage)="onCircleMessages($event)"></app-circle>
+  </div> 
+
   <div class="column middle">
-    <app-message [messages]="messages"></app-message>
-  </div>
-  <div class="column side">
-    <app-user></app-user>
+    <app-message  [commonMessage]="commonMessage" ></app-message>
 
   </div>
+
+  <div class="column right">
+    <app-user [users]='users' (commonMessage)='onUserMessages($event)' ></app-user>
+  </div> 
+
 </div>

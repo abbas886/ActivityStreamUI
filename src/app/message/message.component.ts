@@ -1,9 +1,10 @@
-import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MessageService } from '../message.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
-import { Message } from './message'
+import { Message, CommonMessage } from './message'
 import { Circle } from '../circle/circle';
+
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -12,7 +13,12 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-  @Input() messages: Message[] = [];
+  @Input()
+  commonMessage: CommonMessage;
+
+  enterredMessage: string;
+  newMessage: Message;
+  status: string;
   circle: Circle;
   constructor(
     private messageService: MessageService,
@@ -20,20 +26,36 @@ export class MessageComponent implements OnInit {
     private location: Location) {
   }
 
+  sendMessage(event) {
+
+    if (event.keyCode === 13) {
+      this.newMessage = new Message();
+      this.newMessage.message = event.target.value;
+      this.newMessage.senderID = 'Abbas';
+      this.newMessage.postedDate = new Date();
+      this.newMessage.circleName = this.commonMessage.circleName;
+      this.newMessage.receiverID = this.commonMessage.userName;
+      this.commonMessage.messages.push(this.newMessage);
+      this.enterredMessage = '';
+      this.postMessage(this.newMessage);
+    }
+  }
+
+
+  private postMessage(message: Message) {
+    alert('sending message:' + message)
+    this.messageService.postMessage(message).subscribe(data => {
+
+      this.status = data.json();
+      alert('status : ' + this.status);
+    }
+    )
+  }
+
+
 
 
   ngOnInit(): void {
-  /* this.messageService.getCircleMessages(this.circle.id).subscribe(
-      data => {
-        this.messages = data.json();
-      }
-    )
-
-    this.route.paramMap
-    .switchMap((params: ParamMap) => this.messageService.getCircleMessages(params.get('id')))
-    .subscribe(data => {
-      this.messages = data.json();
-    });*/
   }
 
 }

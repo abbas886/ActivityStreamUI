@@ -1,11 +1,17 @@
-<div class = "messages">
- <ul>
-  <li *ngFor="let message of messages">
-    <div class="sender">{{message.senderID}}</div>
-    <div class="date">  @ {{message.postedDate | date}} </div>
-    <div class="message"> {{message.message}} </div>
-  </li>
-</ul>
+<div class="messages">
+  <ul>
+    <li *ngFor="let message of commonMessage.messages">
+      <div class="sender">{{message.senderID}}</div>
+      <div class="date"> @ {{message.postedDate | date}} </div>
+      <div class="message"> {{message.message}} </div>
+    </li>
+
+  </ul>
+
+
 </div>
 
-<button mat-button>Click me!</button>
+<div class="newMessage">
+  <button class="btnAttachment">+</button>
+  <textarea class="txtMessage" [ngModel]="enterredMessage" (keydown)="sendMessage($event)"></textarea>
+</div>

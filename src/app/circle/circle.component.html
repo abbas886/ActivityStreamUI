@@ -1,90 +1,9 @@
-<!-- <div class="row">
- <div class="column side">
-
-    <ul>
-
-      <li *ngFor="let circle of circles" [class.selected]="circle === selectedCircle" (click)='getCircleMessages(circle.id)'>
-        {{circle.name}}
-
-      </li>
-    </ul>
-
-   
-  </div> 
-
-
-
-
-  <div class="column middle">
-    <ul>
-      <li *ngFor="let message of messages">
-        <div class="sender">{{message.senderID}}</div>
-        <div class="date"> {{message.postedDate | date}} </div>
-        <div class="message"> {{message.message}} </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="column side">
-    
-        <ul>
-    
-          <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)='getUserMessages(user.id)'>
-            {{user.name}}
-    
-          </li>
-        </ul>
-    
-         <a *ngFor="let circle of circles" [routerLink]="['/circle/messages', circle.id]" class="col-1-4">
-          {{circle.name}}
-          </a> 
-           <app-message [circle] = "selectedCircle"></app-message> 
-    
-      </div>
-    
-</div>  -->
-
-
-
-
-
 <div class="column">
   <div class="circles">
     <ul>
-
       <li *ngFor="let circle of circles" [class.selected]="circle === selectedCircle" (click)='getCircleMessages(circle.id)'>
         {{circle.name}}
-
       </li>
     </ul>
-
   </div>
-
 </div>
-
-<!--
-<div class="messages" >
-  <app-message [messages]="messages"></app-message>
-</div>
-
-
-  <div class="column middle" style="background-color:#bbb;">
-    <ul>
-      <li *ngFor="let message of messages">
-        <div class="sender">{{message.senderID}}</div>
-        <div class="date"> {{message.postedDate | date}} </div>
-        <div class="message"> {{message.message}} </div>
-      </li>
-    </ul>
-
-  </div>
-  <div class="column side" style="background-color:#ccc;">
-    <ul>
-
-      <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)='getUserMessages(user.id)'>
-        {{user.name}}
-
-      </li>
-    </ul>
-
-  </div>-->

@@ -1,11 +1,11 @@
+<div class="column">
 
-<ul class="users">
-
-  <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
-    <span class="badge">{{user.id}}</span> {{user.name}}
-
-  </li>
-
-
-
-</ul>
+  <div class="users">
+    <ul>
+      <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)='getUserMessages(user.id)'>
+        {{user.name}}
+     
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Message } from './message/message'
+import { Message, CommonMessage } from './message/message'
 import { User } from './user/user'
 import { Circle } from './circle/circle'
+
 
 import { CircleService } from './circle.service';
 import { UserService } from './user.service';
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
   circles: Circle[] = [];
   users: User[] = [];
   @Input()
-  messages: Message[]= [];
+  commonMessage: CommonMessage;
+
 
   constructor(private circleService: CircleService,
     private userService: UserService) {
@@ -35,21 +37,24 @@ export class AppComponent implements OnInit {
   getAllUsers() {
 
     this.userService.getAllUsers().subscribe(data => {
-      this.circles = data.json();
+      this.users = data.json();
     })
 
   }
 
-  onMessages(messages: Message[]) {
-    this.messages = messages;
+  onCircleMessages(commonMessage: CommonMessage) {
+    this.commonMessage = commonMessage;
+  }
+
+  onUserMessages(commonMessage: CommonMessage) {
+    this.commonMessage = commonMessage;
   }
 
 
   ngOnInit() {
 
     this.getAllCircles();
-    // this.getAllUsers();
-    // this.getCircleMessages();
+    this.getAllUsers();
   }
 
 }

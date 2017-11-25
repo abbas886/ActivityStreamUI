@@ -20,16 +20,22 @@ p.heading{
 
 
 
-/* Create three unequal columns that floats next to each other */
 .column {
     float: left;
     padding: 10px;
-    height: 520px; /* Should be removed. Only for demonstration */
+    height: 520px; 
        
 }
 
 /* Left and right column */
-.column.side {
+.column.left {
+    float: left;
+    width: 15%;
+    background-color:rgb(51, 54, 54);
+}
+
+.column.right {
+    float: right;
     width: 15%;
     background-color:rgb(51, 54, 54);
 }
@@ -38,12 +44,7 @@ p.heading{
 .column.middle {
     width: 70%;
     background-color: white;
+    float: left
    
 }
 
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}

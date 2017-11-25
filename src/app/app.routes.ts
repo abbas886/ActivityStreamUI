@@ -25,12 +25,7 @@ export const routes: Routes = [
     path: 'circle/messages/:id',
     component: MessageComponent
   }
-  ,
-  {
-    path: '**',
-    redirectTo: '/'
-
-  }
+  
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
