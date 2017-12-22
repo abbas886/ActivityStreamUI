@@ -28,8 +28,11 @@ export class AppComponent implements OnInit {
 
   getAllCircles() {
 
-    this.circleService.getAllCircles().subscribe(data => {
-      this.circles = data.json();
+    this.circleService.getAllCircles().subscribe(circledata => {
+      this.circles = circledata.json();
+      this.userService.getAllUsers().subscribe(userdata => {
+        this.users = userdata.json();
+      })
     })
 
   }
@@ -54,7 +57,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.getAllCircles();
-    this.getAllUsers();
+    //this.getAllUsers();
   }
 
 }

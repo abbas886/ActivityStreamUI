@@ -37,6 +37,11 @@ export class CircleComponent implements OnInit {
     )
   }
 
+  showCreateCircleWindow()
+  {
+    alert('clicked add circle')
+  }
+
 
 
   ngOnInit() {

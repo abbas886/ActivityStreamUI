@@ -1,4 +1,15 @@
 <div class="column">
+
+  
+  <div class="channel">
+
+    <label class="channels">Channels</label>  
+    <div class="plus" (click)='showCreateCircleWindow()'></div>
+
+
+  </div>
+
+
   <div class="circles">
     <ul>
       <li *ngFor="let circle of circles" [class.selected]="circle === selectedCircle" (click)='getCircleMessages(circle.id)'>

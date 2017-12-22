@@ -43,4 +43,47 @@
     width:  auto;
   }
 
+  .channel{
+    color: rgb(234, 240, 234);
+    font-size: 25px;
+    align-content: left;
+    padding-bottom: 10px;
+    
+  }
+  
+.plus {
+    float: right;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(44, 108, 128);
+    position: relative;
+    left: 10px;
+  }
+  .plus::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 5px;
+    margin-top: -5px;
+    top: 55%;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+  }
+  .plus::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 5px;
+    margin-left: -5px;
+    left: 55%;
+    top: 5px;
+    bottom: 5px;
+    z-index: 9;
+  }
+
+
   
